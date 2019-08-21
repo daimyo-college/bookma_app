@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: hogehogemaster
   socket: /tmp/mysql.sock
 
 development:
@@ -48,7 +48,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: bookma_app_production
-  username: bookma_app
-  password: <%= ENV['BOOKMA_APP_DATABASE_PASSWORD'] %>
+  adapter:  mysql2
+  encoding: utf8
+  pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout:  5000
+  username: <%= ENV["MC_DB_USERNAME"] %>
+  password: <%= ENV["MC_DB_PASSWORD"] %>
+  database: <%= ENV["MC_DATABASE"] %>
+  host:     <%= ENV["MC_DB_HOSTNAME"] %>
