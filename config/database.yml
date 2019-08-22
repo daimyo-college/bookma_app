@@ -44,15 +44,15 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+  production:
+    url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  adapter:  mysql2
-  encoding: utf8
-  pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout:  5000
-  username: <%= ENV["MC_DB_USERNAME"] %>
-  password: <%= ENV["MC_DB_PASSWORD"] %>
-  database: <%= ENV["MC_DATABASE"] %>
-  host:     <%= ENV["MC_DB_HOSTNAME"] %>
+# production:
+#   adapter:  mysql2
+#   encoding: utf8
+#   pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout:  5000
+#   username: <%= ENV["MC_DB_USERNAME"] %>
+#   password: <%= ENV["MC_DB_PASSWORD"] %>
+#   database: <%= ENV["MC_DATABASE"] %>
+#   host:     <%= ENV["MC_DB_HOSTNAME"] %>
