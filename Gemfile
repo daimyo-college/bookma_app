@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 #追加分
+gem "dotenv-rails"
 gem 'devise'
 # gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5.9.0'
