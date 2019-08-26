@@ -4,12 +4,18 @@
       <h3><%= link_to "bookma_app", "#" %></h3>
     </div>
     <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a><%= link_to "ログイン", "#" %></a>
-      </li>
-      <li class="nav-item">
-        <a><%= link_to "サインアップ", new_user_registration_path %></a>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <a><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a><%= link_to "ログイン", new_user_session_path %></a>
+        </li>
+        <li class="nav-item">
+          <a><%= link_to "サインアップ", new_user_registration_path %></a>
+        </li>
+      <% end %>
     </ul>
   </div>
 </header>
