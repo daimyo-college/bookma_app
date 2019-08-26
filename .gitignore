@@ -27,6 +27,6 @@
 /config/master.key
 
 /config/database.yml
-/config/credentials.yml.enc
-/config/master.key
+# /config/credentials.yml.enc
+# /config/master.key
 /.mc-rails.yml
