@@ -14,7 +14,9 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    # @book = Book.new
+    @list = List.find(params[:list_id])
+    @book = @list.books.build
   end
 
   # GET /books/1/edit
