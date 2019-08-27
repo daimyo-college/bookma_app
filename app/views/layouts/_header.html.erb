@@ -6,7 +6,10 @@
     <ul class="nav justify-content-end">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <a><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a>
+          <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></a>
+        </li>
+        <li class="nav-item">
+          <a><%= link_to 'リスト作成', new_list_path %></a>
         </li>
       <% else %>
         <li class="nav-item">

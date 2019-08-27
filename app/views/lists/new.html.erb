@@ -1,5 +1,14 @@
-<h1>New List</h1>
+<div class="container">
+  <div class="title my-5">
+    <h1>New List</h1>
+  </div>
 
-<%= render 'form', list: @list %>
+  <div class="form-body">
+    <%= render 'form', list: @list %>
+  </div>
 
-<%= link_to 'Back', lists_path %>
+  <div class="foot-link text-right">
+    <p><%= link_to 'Back', lists_path %></p>
+  </div>
+  
+</div>
