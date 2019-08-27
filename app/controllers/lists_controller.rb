@@ -14,8 +14,7 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   def new
-    binding.pry
-    @list = current_user.lists.build(id: current_user.id)
+    @list = current_user.lists.build(user_id: current_user.id) #user_idのみ入ったlistオブジェクトを作る
   end
 
   # GET /lists/1/edit
@@ -25,11 +24,12 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
+    # @list = List.new(list_params)
+    @list = current_user.lists.build(list_params)
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_url, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:title, :content,)
+      params.require(:list).permit(:title, :content, :user_id) #user_idを受け取れるようにする
     end
 end
