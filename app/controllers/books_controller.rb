@@ -14,9 +14,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    binding.pry
-    # @book = Book.new
-    @list = List.find(params[:list_id])
+    @list = current_user.lists.find(params[:list_id])
     @book = @list.books.build
   end
 
