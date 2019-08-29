@@ -51,3 +51,20 @@ header {
 .form-body {
   text-align: center;
 }
+
+.book {
+  margin: 0 20px;
+  
+  .book-item {
+    p {
+      overflow-wrap: break-word;
+    }
+  }
+
+  .book-picture {
+    img {
+      width: 100px;
+    }
+  }
+
+}
