@@ -55,18 +55,6 @@ header {
 .book {
   margin: 0 20px;
 
-  .book-item {
-    h5 {
-      margin-left: 60px;
-    }
-  }
-
-  .book-caption {
-    h5 p {
-      margin-left: 60px;
-    }
-  }
-
   .book-picture {
     img {
       display: block;
@@ -77,7 +65,4 @@ header {
   }
 }
 
-.content p {
-  overflow-wrap: break-word;
-}
 
