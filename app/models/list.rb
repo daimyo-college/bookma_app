@@ -1,5 +1,5 @@
 class List < ApplicationRecord
-  has_many :books, dependent: :destroy
+  has_many :books
   belongs_to :user
   
 end
