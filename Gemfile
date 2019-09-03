@@ -7,6 +7,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5.9.0'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
