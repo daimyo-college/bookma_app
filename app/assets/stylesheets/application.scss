@@ -55,19 +55,14 @@ header {
 .book {
   margin: 0 20px;
 
-  .book-item {
-    p {
-      overflow-wrap: break-word;
-    }
-  }
-
   .book-picture {
     img {
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 100px;
+      width: 150px;
     }
   }
 }
+
 
