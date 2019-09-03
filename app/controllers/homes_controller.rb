@@ -3,6 +3,9 @@ class HomesController < ApplicationController
   end
 
   def search
-
   end
+
+  def bookshow
+  end
+  
 end
