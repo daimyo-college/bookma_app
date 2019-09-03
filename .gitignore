@@ -25,6 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+config/master-development.key
 
 /.mc-rails.yml
 /.envrc
