@@ -10,6 +10,8 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    list = current_user.lists.find(params[:id])
+    @book = list.books
   end
 
   # GET /lists/new
