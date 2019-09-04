@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root 'homes#index'
-  get 'homes/search', to: 'homes#search' #仮
-  get 'homes/bookshow', to: 'homes#bookshow'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -10,7 +8,11 @@ Rails.application.routes.draw do
   resources :users, only:[:show]
 
   resources :lists do
-    resources :books
+    resources :books do
+      collection do
+        get :search
+      end
+    end
   end
 
 end
