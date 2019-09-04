@@ -56,13 +56,24 @@ header {
   margin: 0 20px;
 
   .book-picture {
+    overflow: hidden;
+
     img {
       display: block;
       margin-left: auto;
       margin-right: auto;
       width: 150px;
+      transition-duration: 0.5s;
+    }
+
+    :hover img {
+      transform: scale(1.2);
+      transition-duration: 0.5s;
     }
   }
 }
+
+
+  
 
 
