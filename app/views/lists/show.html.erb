@@ -4,6 +4,11 @@
     <p><%= @list.content %></p>
   </div>
 
+  <% @book.each do |book| %>
+    <p>title:<%= book.title %></p>
+    <p>caption:<%= book.caption %></p>
+  <% end %>
+
 
   <%= link_to 'Edit', edit_list_path(@list) %> |
   <%= link_to 'Back', lists_path %> |
