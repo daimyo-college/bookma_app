@@ -8,7 +8,7 @@
     <hr class="featurette-divider">
     <div class="book row">
       <div class="book-picture col-3">
-          <%= link_to image_tag("https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1237/9784297101237.jpg?"), "/lists/#{@list.id}/books/#{book.id}" %>
+          <%= link_to image_tag("https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1237/9784297101237.jpg?"), list_book_path(@list,book) %>
       </div>
       <div class="col-2">
       </div>
