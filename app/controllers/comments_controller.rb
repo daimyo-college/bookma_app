@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     user = current_user
     @list = user.lists.find(params[:list_id])
     @book = @list.books.find(params[:book_id])
-    @comment = @book.comments.build(user_id: current_user.id)
+    @comment = @book.comments.build
   end
 
   def create 
