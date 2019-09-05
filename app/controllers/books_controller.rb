@@ -5,6 +5,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @list = @user.lists.find(params[:list_id])
+    @book = @list.books.find(params[:id])
+    @comment = @book.comments.find_by(book_id: params[:id])
   end
 
   def search
