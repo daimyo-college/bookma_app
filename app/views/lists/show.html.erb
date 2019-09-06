@@ -4,6 +4,9 @@
     <p><%= @list.content %></p>
   </div>
 
+  <%= link_to 'Back', lists_path %> |
+  <%= link_to 'book追加', new_list_book_path(@list) %>
+
   <% @books.each do |book| %>
     <hr class="featurette-divider">
     <div class="book row">
@@ -29,5 +32,3 @@
     <%= link_to 'book追加', new_list_book_path(@list) %>
   </div>
 </div>
-
-

@@ -13,28 +13,28 @@
 ActiveRecord::Schema.define(version: 2019_09_05_210824) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "isbn", null: false
-    t.string "title", default: "", null: false
+    t.string "isbn"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "list_id", null: false
+    t.integer "list_id"
     t.text "author", null: false
     t.string "imageurl", null: false
     t.text "caption", null: false
-    t.string "shopurl", null: false
-    t.text "comment", null: false
+    t.string "shopurl"
+    t.text "comment"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content", default: "", null: false
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "book_id"
   end
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", default: "", null: false
-    t.text "content", null: false
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

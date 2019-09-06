@@ -14,6 +14,9 @@
         <li class="nav-item">
           <a><%= link_to 'ユーザー', user_path(current_user) %></a>
         </li>
+        <li class="nav-item">
+          <a><%= link_to 'マイリスト', lists_path %></a>
+        </li>
       <% else %>
         <li class="nav-item">
           <a><%= link_to "ログイン", new_user_session_path %></a>
