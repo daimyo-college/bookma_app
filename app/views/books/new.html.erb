@@ -1,33 +1,17 @@
-<div class="col-8 ml-auto mr-auto">
-  <h1 class="text-center my-5">本詳細ページ</h1>
-  <div class="row">
-    <div class="book col-4">
-      <div class="book-picture">
-        <img src="https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1237/9784297101237.jpg?">
-      </div>
+<div class="container">
+  <div class="title">
+    <h1>book登録ページ</h1>
+  </div>
+  <div class="search-form">
+    <div class="form-inline mt-2 mt-md-0">
+      <%= form_tag('', method: :get) do %>
+      <%= text_field_tag :list, "", class: "form-control mr-sm-2", name: "keyword", placeholder: "本のタイトルを入れてください", style: "width: 400px;" %>
+      <button class="btn btn-outline-success my-2 my-sm-0" title="検索" type="submit">検索</button>
+    <% end %>
     </div>
-    <div class="col-7">
-      <p>タイトル：title</p>
-      <p>著者：author</p>
-      <p>説明：</P>
-      <p>Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!
-      Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! 
-      Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! </p>
-      <p></p>
+    <div id='book_list'>
+    <%= render partial: 'book_list' %>
     </div>
-  </div>
-  <hr class="featurette-divider mx-5">
-  <div class="bg-light py-4 my-4 col-8 ml-auto mr-auto">
-    <p>ユーザー名：nakashima</p>
-    <p>リストタイトル：初心者おすすめ</p>
-    <p>コメント：とてもわかりやすい。初心者にはおすすめです！</p>
-  </div>
-  <div class="bg-light py-4 my-4 col-8 ml-auto mr-auto">
-    <p>ユーザー名：nakashima</p>
-    <p>リストタイトル：初心者おすすめ</p>
-    <p>コメント：とてもわかりやすい。初心者にはおすすめです！とてもわかりやすい。初心者にはおすすめです！</p>
-  </div>
-  <div class="text-right mb-5">
-    <%= link_to "この本を登録する", "#comment#newへ" %>
-  </div>
+  </div>  
+  <%= link_to 'リストページへ戻る', list_path(@list) %>
 </div>
