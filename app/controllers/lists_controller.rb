@@ -30,7 +30,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to lists_url, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_url, notice: 'リストを登録しました。' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to lists_url, notice: 'リストを削除しました。' }
       format.json { head :no_content }
     end
   end
