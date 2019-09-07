@@ -22,6 +22,9 @@
         <p><%= book.caption %></p>
         <h5>comment:</h5>
         <p><%= book.comment %></p>
+        <div class="text-right">
+          <%= link_to '削除', list_book_path(@list, book), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
       </div>
     </div>
   <% end %>

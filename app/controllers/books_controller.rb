@@ -37,6 +37,17 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    list = current_user.lists.find(params[:list_id])
+    book = list.books.find(params[:id])
+
+    book.destroy
+    respond_to do |format|
+      format.html { redirect_to list_url(list), notice: '本を削除しました。' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def book_params
       params.require(:book).permit(:isbn, :title, :comment, :author, :caption, :imageurl, :shopurl)
