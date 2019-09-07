@@ -4,11 +4,14 @@
     <p><%= @list.content %></p>
   </div>
 
+  <%= link_to 'Back', lists_path %> |
+  <%= link_to 'book追加', new_list_book_path(@list) %>
+
   <% @books.each do |book| %>
     <hr class="featurette-divider">
     <div class="book row">
       <div class="book-picture col-3">
-          <%= link_to image_tag("https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1237/9784297101237.jpg?"), list_book_path(@list,book) %>
+          <%= link_to image_tag(book.imageurl), list_book_path(@list,book) %>
       </div>
       <div class="col-2">
       </div>
@@ -16,7 +19,9 @@
         <h5>title:</h5>
         <p><%= book.title %></p>
         <h5>caption:</h5>
-        <p>hello world! hello world! hello world! hello world! hello world! hello world!</p>
+        <p><%= book.caption %></p>
+        <h5>comment:</h5>
+        <p><%= book.comment %></p>
       </div>
     </div>
   <% end %>
@@ -24,8 +29,6 @@
 
   <div class="text-right my-5">
     <%= link_to 'Back', lists_path %> |
-    <%= link_to 'book追加', search_list_books_path(@list) %>
+    <%= link_to 'book追加', new_list_book_path(@list) %>
   </div>
 </div>
-
-

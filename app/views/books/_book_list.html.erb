@@ -1,0 +1,35 @@
+<% if @items.present? %>
+  <div class="error-message">
+    <%= render partial: 'error_messages' %>
+  </div>
+
+  <h3 class="mt-5" >検索結果</h3>
+
+  <div class="text-right">
+    <%= link_to 'リストページへ戻る', list_path(@list) %>
+  </div>
+
+  <% @items.each do |item| %>
+    <hr class="featurette-divider">
+    <div class="row">
+      <div class="book-picture col-3 d-flex align-items-center justify-content-center">
+        <%= image_tag(item.large_image_url) %>
+      </div>
+      <div class="col-9">
+        <%= item.title %> ( <%= item.author %> )
+        <%= form_with(model: @book, url: { action: :create }, local: true) do |form| %>
+          <div class="form-group">
+            <%= form.hidden_field :title, :value => item.title %>
+            <%= form.hidden_field :author, :value => item.author %>
+            <%= form.hidden_field :isbn, :value => item.isbn %>
+            <%= form.hidden_field :caption, :value => item.item_caption %>
+            <%= form.hidden_field :imageurl, :value => item.large_image_url %>
+            <%= form.hidden_field :shopurl, :value => item.item_url %>
+            <%= form.text_field :comment, placeholder: "コメント" %>
+            <%= form.submit class: "btn btn-outline-info my-2 my-sm-0" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

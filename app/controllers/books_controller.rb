@@ -17,6 +17,9 @@ class BooksController < ApplicationController
   def new
     @list = current_user.lists.find(params[:list_id])
     @book = @list.books.build
+    if params[:keyword]
+      @items = RakutenWebService::Books::Book.search(title: params[:keyword], hits: 10)
+    end
   end
 
   def create
@@ -25,7 +28,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to action: 'new', notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
@@ -36,6 +39,6 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:isbn, :title, :comment)
+      params.require(:book).permit(:isbn, :title, :comment, :author, :caption, :imageurl, :shopurl)
     end
 end
