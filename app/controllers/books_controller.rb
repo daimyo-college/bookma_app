@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to action: 'new', notice: 'Book was successfully created.' }
+        format.html { redirect_to new_list_book_url, notice: "「#{@list.title}」に本を追加しました。" }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
