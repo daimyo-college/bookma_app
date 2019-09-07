@@ -30,7 +30,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to lists_url, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_url, notice: 'リストを登録しました。' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
