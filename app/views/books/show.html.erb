@@ -15,11 +15,15 @@
   </div>
   
   <hr class="featurette-divider mx-5">
-  <div class="bg-light py-4 my-4 col-8 ml-auto mr-auto">
-    <p>ユーザー名：<%= @user.name %></p>
-    <p>リストタイトル：<%= @list.title %></p>
-    <p>コメント：<%= @book.comment %></p>
-  </div>
+
+  <% @books.each do |book| %>
+    <div class="bg-light py-4 my-4 col-8 ml-auto mr-auto">
+      <p>ユーザー名：<%= link_to "#{book.list.user.name}", "/users/#{book.list.user.id}" %></p>
+      <p>リストタイトル：<%= book.list.title %></p>
+      <p>コメント：<%= book.comment %></p>
+    </div>
+  <% end %>
+
   <div class="text-right mb-5">
     <%= link_to "リストページに戻る", list_path(@list) %>
   </div>

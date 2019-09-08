@@ -1,18 +1,19 @@
 class BooksController < ApplicationController
 
-  def index
-    @books = Book.all
-  end
-
   def show
     @user = current_user
     @list = @user.lists.find(params[:list_id])
     @book = @list.books.find(params[:id])
-    @comment = @book.comments.find_by(book_id: params[:id])
+    @books = Book.where(isbn: "#{@book.isbn}")
   end
 
-  def search
-  end
+  # def show
+  #   @user = current_user
+  #   @list = @user.lists.find(params[:list_id])
+  #   @book = @list.books.find(params[:id])
+  #   books = Book.find_by(isbn: @book.isbn)
+  #   @comment = book.comments
+  # end
 
   def new
     @list = current_user.lists.find(params[:list_id])
