@@ -15,11 +15,16 @@
       <tbody>
         <% @lists.each do |list| %>
           <tr>
-              <th><%= current_user.name %></th>
+              <th><%= list.user.name %></th>
               <td><%= link_to list.title, list %></td>
               <td><%= list.content %></td>
-              <td><%= link_to '編集', edit_list_path(list) %></td>
-              <td><%= link_to '削除', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if current_user == list.user %>
+                <td><%= link_to '編集', edit_list_path(list) %></td>
+                <td><%= link_to '削除', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+              <% end %>
           </tr>
         <% end %>
       </tbody>

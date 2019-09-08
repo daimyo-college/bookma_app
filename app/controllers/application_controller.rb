@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
       root_path # ログアウト後に遷移するpathを設定
     end
 
+  private
+    def login_required
+      flash[:danger] = "ログインしてください"
+      redirect_to new_user_session_path unless current_user
+    end
 end

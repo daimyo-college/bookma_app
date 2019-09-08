@@ -1,10 +1,11 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
   def index
-    @lists = current_user.lists
+    @lists = List.all
   end
 
   # GET /lists/1
