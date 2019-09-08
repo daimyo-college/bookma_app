@@ -11,14 +11,12 @@
 
   <body>
     <%= render "layouts/header" %>
-    <% if flash.notice.present? %>
-      <div class="alert alert-success">
-        <%= flash.notice %>
-      </div>
+
+    <% flash.each do |key, value| %>
+      <% key = 'success' if key == 'notice' %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+    
     <%= yield %>
   </body>
 </html>

@@ -1,16 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>ユーザー名:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>メールアドレス:</strong>
-  <%= @user.email %>
-</p>
-
-<% if @user.id == current_user.id %>
-  <%= link_to '編集', edit_user_registration_path(@user) %> |
-<% end %>
-<%= link_to '戻る', lists_path %>
+<div class="container">
+  <div class="title">
+    <h1>Lists</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>リスト名</th>
+        <th>コンテンツ</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lists.each do |list| %>
+      <tr>
+        <th><%= list.user.name %></th>
+        <td><%= link_to list.title, list %></td>
+        <td><%= list.content %></td>
+        <% if current_user == list.user %>
+        <td><%= link_to '編集', edit_list_path(list) %></td>
+        <td><%= link_to '削除', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+        <td></td>
+        <td></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
