@@ -23,4 +23,15 @@
   <div class="text-right mb-5">
     <%= link_to "リストページに戻る", list_path(@list) %>
   </div>
+
+  <% @books.each do |book| %>
+    <div class="bg-light py-4 my-4 col-8 ml-auto mr-auto">
+      <p>ユーザー名：<%= link_to "#{book.list.user.name}", "/users/#{book.list.user.id}/lists" %></p>
+      <p>リストタイトル：<%= link_to "#{book.list.title}", "/lists/#{book.list.id}" %></p>
+      <p>コメント：<%= book.comment %></p>
+    </div>
+  <% end %>
+
+  <%= @book.list.user.email %>
+
 </div>

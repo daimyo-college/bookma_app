@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only:[:show]
+  resources :users, only:[:show, :lists]
+  get 'users/:id/lists' , to: 'users#lists'
 
   resources :lists do
     resources :books do
