@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = current_user.lists
+    @lists = List.order(updated_at: :desc).first(20)
   end
 
   # GET /lists/1
