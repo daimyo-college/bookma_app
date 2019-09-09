@@ -5,8 +5,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:list_id])
     @list = List.find(params[:list_id])
+    @user = @list.user
     @book = @list.books.find(params[:id])
     @comment = @book.comments.find_by(book_id: params[:id])
     @books = Book.where(isbn: "#{@book.isbn}").where.not(list_id: params[:list_id])
