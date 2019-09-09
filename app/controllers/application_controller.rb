@@ -17,8 +17,10 @@ class ApplicationController < ActionController::Base
 
   private
     def login_required
-      flash[:danger] = "ログインしてください"
-      redirect_to new_user_session_path unless current_user
+      if current_user == nil
+        flash[:danger] = "ログインしてください"
+        redirect_to new_user_session_path
+      end
     end
 
     def forbid_login_user
