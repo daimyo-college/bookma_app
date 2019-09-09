@@ -24,9 +24,8 @@
       <%= form.submit "リスト登録", class: "btn btn-lg btn-primary btn-block" %>
     </div>
   <% end %>
-  <div class="text-right mt-5">
-    <%= link_to "#{@list.title}のbook一覧ページ", @list %> |
-    <%= link_to 'マイリスト', "/users/#{@list.user.id}/lists" %>
-  </div>
 </div>
-
+<div class="foot-link text-right">
+  <%= link_to 'リスト一覧', lists_path %> |
+  <%= link_to 'マイリスト', "/users/#{@list.user.id}/lists" %>
+</div>
