@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   def new
     @list = current_user.lists.find(params[:list_id])
     @book = @list.books.build
-    if params[:keyword]
+    if params[:keyword] && params[:keyword].size > 1
       @items = RakutenWebService::Books::Book.search(title: params[:keyword], hits: 10)
     end
   end

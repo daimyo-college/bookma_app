@@ -25,7 +25,7 @@
             <%= form.hidden_field :caption, :value => item.item_caption %>
             <%= form.hidden_field :imageurl, :value => item.large_image_url %>
             <%= form.hidden_field :shopurl, :value => item.item_url %>
-            <%= form.text_field :comment, placeholder: "コメント" %>
+            <%= form.text_field :comment, placeholder: "コメントを入れてください", style: "width: 420px;", class: "mt-3"  %>
             <%= form.submit class: "btn btn-outline-info my-2 my-sm-0" %>
           </div>
         <% end %>
