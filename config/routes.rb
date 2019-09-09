@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   resources :lists do
     resources :books do
       resources :comments, only: [:new, :create]
-      collection do
-        get :search
-      end
     end
   end
 

@@ -11,9 +11,9 @@
 
   <body>
     <%= render "layouts/header" %>
-    <% if flash.notice.present? %>
-      <div class="alert alert-success">
-        <%= flash.notice %>
+     <% flash.each do |key, value| %>
+      <% key = 'success' if key == 'notice' %>
+      <div class="alert alert-<%= key %>"><%= value %>
       </div>
     <% end %>
     <%= yield %>
