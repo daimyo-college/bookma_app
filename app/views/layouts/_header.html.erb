@@ -17,6 +17,9 @@
         <li class="nav-item">
           <a><%= link_to 'マイリスト', "/users/#{current_user.id}/lists" %></a>
         </li>
+        <li class="nav-item">
+          <a><%= link_to 'みんなのリスト', lists_path %></a>
+        </li>
       <% else %>
         <li class="nav-item">
           <a><%= link_to "ログイン", new_user_session_path %></a>
