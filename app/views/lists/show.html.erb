@@ -4,8 +4,10 @@
     <p><%= @list.content %></p>
   </div>
 
-  <%= link_to 'Back', lists_path %> |
-  <%= link_to 'book追加', new_list_book_path(@list) %>
+  <%= link_to 'Back', lists_path %>
+  <% if current_user == @list.user %>
+    | <%= link_to 'book追加', new_list_book_path(@list) %>
+  <% end %>
 
   <% @books.each do |book| %>
     <hr class="featurette-divider">
@@ -22,13 +24,18 @@
         <p><%= book.caption %></p>
         <h5>comment:</h5>
         <p><%= book.comment %></p>
-      </div>
+        <% if current_user == book.list.user %>
+          <div class="text-right">
+            <%= link_to '削除', list_book_path(@list, book), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>      </div>
     </div>
   <% end %>
   <hr class="featurette-divider">
 
   <div class="text-right my-5">
-    <%= link_to 'Back', lists_path %> |
-    <%= link_to 'book追加', new_list_book_path(@list) %>
-  </div>
+    <%= link_to 'Back', lists_path %>
+    <% if current_user == @list.user %>
+      | <%= link_to 'book追加', new_list_book_path(@list) %>
+    <% end %>  </div>
 </div>

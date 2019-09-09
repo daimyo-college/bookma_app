@@ -1,5 +1,8 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user, only: [:edit]
+
 
   # GET /lists
   # GET /lists.json
@@ -30,7 +33,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to lists_url, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_url, notice: 'リストを登録しました。' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
@@ -58,7 +61,7 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to lists_url, notice: 'リストを削除しました。' }
       format.json { head :no_content }
     end
   end
@@ -72,5 +75,14 @@ class ListsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:title, :content, :user_id) #user_idを受け取れるようにする
+    end
+
+    def authenticate_user
+      list = List.find(params[:id])
+      user = list.user
+      unless current_user == user
+        flash[:danger] = "権限がありません"
+        redirect_to lists_path
+      end
     end
 end
