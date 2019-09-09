@@ -21,4 +21,10 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path unless current_user
     end
 
+    def forbid_login_user
+      if current_user
+        redirect_to("/lists")
+      end
+    end
+
 end

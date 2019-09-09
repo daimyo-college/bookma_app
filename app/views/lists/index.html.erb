@@ -1,6 +1,6 @@
 <div class="container">
   <div class="title">
-    <h1>Lists</h1>
+    <h1>新着Lists</h1>
   </div>
   <table class="table table-striped">
       <thead>
@@ -15,7 +15,7 @@
       <tbody>
         <% @lists.each do |list| %>
           <tr>
-              <th><%= current_user.name %></th>
+              <th><%= link_to list.user.name, "users/#{list.user.id}/lists" %></th>
               <td><%= link_to list.title, list %></td>
               <td><%= list.content %></td>
               <td><%= link_to '編集', edit_list_path(list) %></td>
