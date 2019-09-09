@@ -1,6 +1,5 @@
-<h1>Editing List</h1>
+<div class="title">
+  <h1>Editing List</h1>
+</div>
 
 <%= render 'form', list: @list %>
-
-<%= link_to "#{@list.title}のbook一覧ページ", @list %> |
-<%= link_to 'マイリスト', "/users/#{@list.user.id}/lists" %>
