@@ -3,14 +3,15 @@
   <div class="row">
     <div class="book col-4">
       <div class="book-picture">
-        <%= link_to image_tag(@book.imageurl), list_book_path(@list,@book) %>
+        <%= link_to image_tag(@book.imageurl), "#{@book.shopurl}" %>
       </div>
     </div>
     <div class="col-7">
       <p>タイトル：<%= @book.title %></p>
       <p>著者：<%= @book.author %></p>
-      <p>説明：</P>
+      <p>説明</p>
       <p><%= @book.caption %></p>
+      <%= link_to "楽天で購入する", "#{@book.shopurl}" %>
     </div>
   </div>
   
